@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --light: #f6f6f9;
+    --primary: #1976D2;
+    --light-primary: #CFE8FF;
+    --grey: #eee;
+    --dark-grey: #AAAAAA;
+    --dark: #363949;
+    --danger: #D32F2F;
+	--light-danger: #FECDD3;
+    --warning: #FBC02D;
+    --light-warning: #FFF2C6;
+    --success: #388E3C;
+    --light-success: #BBF7D0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* popup size */
+html {
+    width: 450px; /* max: 1000px */
+    height: 350px; /* max: 750px */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+}
+
+.main-content ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content ul .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content ul .label{
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background-color: #1976D2;
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+.main-content ul .convert{
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    background-color: #1976D2;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.main-content ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.main-content ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.main-content ul div.sous {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* animation douce lors de l'ouverture/fermeture */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+
+
+
