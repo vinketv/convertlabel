@@ -4,7 +4,7 @@ Transformez facilement les bordereaux d'envoi au format 4x6 pour les adapter à 
 
 ## Installation
 
-1. Téléchargez l'extension à partir du (Chrome Web Store)[https://chromewebstore.google.com/detail/convert-label/kojlkoompagohabokhpanhcjannalmbh?hl=fr&authuser=0.]
+1. Téléchargez l'extension à partir du [Chrome Web Store](https://chromewebstore.google.com/detail/convert-label/kojlkoompagohabokhpanhcjannalmbh?hl=fr&authuser=0.)
 2. Cliquez sur "Ajouter à Chrome".
 
 ## Fonctionnalités
