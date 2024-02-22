@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		[lang] {
+			display: none;
+		}
+		:target {
+			background-color: pink;
+			border-radius: 0.25rem;
+		}
+		details {
+			background-color: lightcyan;
+		}
+		button:not([disabled]),
+		summary {
+			cursor: pointer;
+		}
+		[data-if-file-scheme-access-allowed] {
+			display: none;
+		}
+		body[data-file-scheme-access-allowed="true"] [data-if-file-scheme-access-allowed="true"],
+		body[data-file-scheme-access-allowed="false"] [data-if-file-scheme-access-allowed="false"] {
+			display: initial;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		<span lang="en">Demande d'autorisation de l'accès aux URL de fichier</span>
+	</h1>
+	<div id="need-file-scheme-access">
+		<h2>
+			<span lang="en">⚠️ Une modification des paramètres est nécessaire pour pouvoir utiliser l'extension.</span>
+		</h2>
+		<ol>
+			<li>
+				<span lang="en">Ouvrir <a data-id="extension-page-link">extensions page</a></span>
+			</li>
+			<li>
+				<span lang="en">Activer "Autoriser l'accès aux URL de fichier"</span><br>
+				<img src="../img/allow.gif" alt="Description de l'image" width="600" height="70">
+			</li>
+		</ol>
+	</div>
+	<script src="./index.js"></script>
+</body>
+</html>
