@@ -29,6 +29,12 @@ const config = {
     width: 300,
     height: 420, // La hauteur sera définie dynamiquement
   },
+  relais: {
+    x: null,
+    y: null,
+    width: 450,
+    height: null, // La hauteur sera définie dynamiquement
+  },
 };
 
 // Ajouter un écouteur d'événements à tous les éléments de classe ".convert"
