@@ -30,9 +30,9 @@ const config = {
     height: 420, // La hauteur sera définie dynamiquement
   },
   relais: {
-    x: null,
+    x: 0,
     y: null,
-    width: 450,
+    width: 420,
     height: null, // La hauteur sera définie dynamiquement
   },
 };

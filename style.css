@@ -138,6 +138,23 @@ a {
   margin-top: 15px;
 }
 
+.main-content ul .all {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 30px;
+  background-color: #ffff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: transform 0.3s;
+}
+.main-content ul .all:hover {
+  transform: scale(1.2);
+}
+
 .merge {
   list-style-type: none;
   display: flex;

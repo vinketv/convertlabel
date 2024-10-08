@@ -16,7 +16,6 @@ document.getElementById("process-pdf").addEventListener("click", async () => {
         pdf.getPage(1).then(function (page) {
           page.getTextContent().then(function (textContent) {
             // Le texte du PDF est dans textContent.items
-            console.log(textContent.items);
             const motTrouve = trouverMotCle(textContent.items, motsCles);
             if (motTrouve) {
               const configId = detectTransporter(motTrouve);

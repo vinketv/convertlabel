@@ -4,7 +4,6 @@ async function resize(configName) {
     .then((isAllowed) => {
       if (isAllowed) {
         // Accès autorisé, poursuivre avec le traitement du PDF
-        console.log(configName);
         const currentConfig = config[configName];
         if (!currentConfig) {
           console.error("Configuration not found for this ID");
