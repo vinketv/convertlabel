@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "lucide": "^0.399.0"
+    "lucide": "^0.399.0",
+    "pdfjs-dist": "^4.4.168",
+    "tesseract.js": "^5.1.0"
   }
 }

@@ -25,7 +25,7 @@
 /* popup size */
 html {
   width: 400px; /* max: 1000px */
-  height: 400px; /* max: 750px */
+  height: 500px; /* max: 750px */
 }
 
 .main-content {
@@ -54,6 +54,7 @@ html {
   gap: 15px;
 }
 
+/* Style général pour les éléments de la classe .label dans le contexte .main-content */
 .main-content ul .label {
   list-style-type: none;
   display: flex;
@@ -65,7 +66,9 @@ html {
   border-radius: 5px;
   margin: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: relative; /* Nécessaire pour le badge "NEW" */
 }
+
 .main-content ul .convert {
   list-style-type: none;
   display: flex;
@@ -127,10 +130,73 @@ html {
   color: #363949;
 }
 
-.open-page {
-  color: #363949;
+a {
+  color: black;
 }
 
 .text-footer {
   margin-top: 15px;
+}
+
+.merge {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 30px;
+  background-color: #ffff;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: transform 0.3s;
+}
+.merge:hover {
+  transform: scale(1.2);
+}
+
+/* Assurez-vous que le li parent utilise Flexbox, et appliquez le badge uniquement à la classe label-new */
+.main-content ul li.label-new {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  padding-right: 20px; /* Assurez-vous que le badge n'affecte pas le contenu */
+  width: 200px;
+  height: 30px;
+  background-color: #1976d2;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: relative; /* Pour le badge "NEW" */
+}
+
+/* Ajout du badge "NEW" uniquement à .label-new */
+.main-content ul li.label-new::after {
+  content: "New";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: white;
+  color: #1976d2;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  background-color: white;
+  color: #fff;
+  padding: 5px;
+  width: 150px;
+  border-radius: 6px;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.social:hover .tooltip {
+  visibility: visible;
 }
