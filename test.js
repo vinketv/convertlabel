@@ -11,7 +11,7 @@ document.getElementById("process-pdf").addEventListener("click", async () => {
   chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
     const tab = tabs[0];
     const pdfUrl = tab.url;
-    if (pdfUrl && pdfUrl.endsWith(".pdf")) {
+    if ((pdfUrl && pdfUrl.endsWith(".pdf")) || pdfUrl.indexOf("pdf") !== -1) {
       pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
         pdf.getPage(1).then(function (page) {
           page.getTextContent().then(function (textContent) {

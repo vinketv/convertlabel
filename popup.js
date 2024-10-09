@@ -95,13 +95,24 @@ document.querySelectorAll(".convert").forEach((element) => {
                     });
                     const url = URL.createObjectURL(blob);
 
-                    // Créer un lien temporaire pour déclencher le téléchargement
-                    const link = document.createElement("a");
-                    link.href = url;
-                    link.download = "bordereau-cropped.pdf";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    // Utiliser l'API chrome.downloads.download avec l'option saveAs
+                    chrome.downloads.download(
+                      {
+                        url: url,
+                        filename: "bordereau-cropped.pdf",
+                        saveAs: true, // Demande à l'utilisateur où enregistrer le fichier
+                      },
+                      (downloadId) => {
+                        if (chrome.runtime.lastError) {
+                          console.error(chrome.runtime.lastError.message);
+                        } else {
+                          console.log(
+                            "Téléchargement lancé avec l'ID : ",
+                            downloadId
+                          );
+                        }
+                      }
+                    );
 
                     // Ouvrir le fichier PDF dans un nouvel onglet
                     window.open(url);

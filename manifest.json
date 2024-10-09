@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Convert Label",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Download and crop PDF Vinted Label for your Thermal Printer",
   "author": "Vinke",
   "icons": {
@@ -9,7 +9,7 @@
     "48": "icon.png",
     "128": "icon.png"
   },
-  "permissions": ["activeTab", "downloads", "tabs", "scripting"],
+  "permissions": ["activeTab", "downloads", "tabs"],
   "host_permissions": ["file:///*", "*://*/*", "https://mail.google.com/*"],
   "web_accessible_resources": [
     {
