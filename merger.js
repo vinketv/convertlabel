@@ -29,18 +29,32 @@ async function fusionnerPDFs(files) {
     );
     otherPages.forEach((page) => newPdfDoc.addPage(page));
   }
+
   const pdfBytes = await newPdfDoc.save();
-
-  // Créer un objet Blob pour représenter les données du PDF
-  const blob = new Blob([pdfBytes], { type: "application/pdf" });
-
+  const blob = new Blob([pdfBytes], {
+    type: "application/pdf",
+  });
   const url = URL.createObjectURL(blob);
+
+  // Utiliser l'API chrome.downloads.download avec l'option saveAs
+  chrome.downloads.download(
+    {
+      url: url,
+      filename: "bordereau-cropped.pdf",
+      saveAs: true, // Demande à l'utilisateur où enregistrer le fichier
+    },
+    (downloadId) => {
+      if (chrome.runtime.lastError) {
+        console.error(chrome.runtime.lastError.message);
+      } else {
+        console.log("Téléchargement lancé avec l'ID : ", downloadId);
+      }
+    }
+  );
+
+  // Ouvrir le fichier PDF dans un nouvel onglet
   window.open(url);
 
-  // Utiliser chrome.downloads pour lancer le téléchargement
-  //   chrome.downloads.download({
-  //     url: URL.createObjectURL(blob),
-  //     filename: "fusion.pdf",
-  //     saveAs: true, // Permet à l'utilisateur de choisir le nom du fichier et le répertoire de destination
-  //   });
+  // Révoquer l'URL pour libérer la mémoire
+  URL.revokeObjectURL(url);
 }
