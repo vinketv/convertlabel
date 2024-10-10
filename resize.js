@@ -58,25 +58,44 @@ async function resize(configName) {
                     {
                       url: url,
                       filename: "bordereau-cropped.pdf",
-                      saveAs: true, // Demande à l'utilisateur où enregistrer le fichier
+                      saveAs: true, // Demander à l'utilisateur l'emplacement du fichier
                     },
-                    (downloadId) => {
+                    function (downloadId) {
                       if (chrome.runtime.lastError) {
-                        console.error(chrome.runtime.lastError.message);
-                      } else {
-                        console.log(
-                          "Téléchargement lancé avec l'ID : ",
-                          downloadId
+                        console.error(
+                          "Error downloading file:",
+                          chrome.runtime.lastError.message
                         );
+                        alert(
+                          "Le téléchargement a échoué : " +
+                            chrome.runtime.lastError.message
+                        );
+                      } else if (!downloadId) {
+                        console.error(
+                          "Download failed: no downloadId returned."
+                        );
+                        alert("Le téléchargement a échoué.");
+                      } else if (downloadId) {
+                        // Ecouter les changements du téléchargement pour savoir quand il est terminé
+                        chrome.downloads.onChanged.addListener(function (
+                          delta
+                        ) {
+                          if (
+                            delta.id === downloadId &&
+                            delta.state &&
+                            delta.state.current === "complete"
+                          ) {
+                            window.open(url); // Ouvre le PDF dans un nouvel onglet
+
+                            // Révoquer l'URL pour libérer la mémoire
+                            URL.revokeObjectURL(url);
+                          }
+                        });
+                      } else {
+                        alert("Le téléchargement a échoué.");
                       }
                     }
                   );
-
-                  // Ouvrir le fichier PDF dans un nouvel onglet
-                  window.open(url);
-
-                  // Révoquer l'URL pour libérer la mémoire
-                  URL.revokeObjectURL(url);
                 })
                 .catch((error) => {
                   console.error(
